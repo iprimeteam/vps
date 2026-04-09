@@ -19,6 +19,7 @@ jobs:
       - self-hosted
       - linux
       - x64
+      - ipvps
 
     steps:
       - name: Checkout repository
