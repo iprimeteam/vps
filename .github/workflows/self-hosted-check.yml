@@ -6,6 +6,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: self-hosted-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify-runner:
     runs-on:
@@ -15,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Show runner info
         run: |
