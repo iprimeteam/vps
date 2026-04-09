@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Slot AI Detector",
+  "version": "1.0.3",
+  "description": "Testing extension for tracking slot-related WebSocket events.",
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.telegram.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_origin_as_fallback": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-hook.js"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}
